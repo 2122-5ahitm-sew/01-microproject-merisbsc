@@ -1,0 +1,32 @@
+@startuml
+class Grave {
+- id: Long
+- firstName: String
+- lastName: String
+- dateOfBirth: LocalDate
+- dateOfDeath: LocalDate
+- employee: Employee
+- contact: Contact
+}
+
+class Employee {
+- id: Long
+- firstName: String
+- lastName: String
+- jobDescription: String
+- salary: int
+- graves: List<Grave>
+}
+
+class Contact {
+- id: Long
+- firstName: String
+- lastName: String
+- telNr: String
+- email: String
+- graves: List<Grave>
+}
+
+Grave "*" -- "1" Employee
+Grave "*" -- "1" Contact
+@enduml
