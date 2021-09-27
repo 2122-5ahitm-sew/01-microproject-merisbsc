@@ -1,0 +1,40 @@
+@startuml
+class Grave {
+- id: Long
+- section: String
+- price: double
+- rent: Rent
+}
+
+class Employee {
+- id: Long
+- firstName: String
+- lastName: String
+- salary: int
+- rents: List<Rent>
+}
+
+class Customer {
+- id: Long
+- firstName: String
+- lastName: String
+- telNr: String
+- email: String
+- rents: List<Rent>
+}
+
+class Rent {
+- id: Long
+- startDate: LocalDate
+- endDate: LocalDate
+- engraving: String
+- customer: Customer
+- employee: Employee
+- grave: Grave
+}
+
+Grave "1" -- "1" Rent
+Rent "*" -- "1" Employee
+Rent "*" -- "1" Customer
+
+@enduml
